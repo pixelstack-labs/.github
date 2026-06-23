@@ -3,7 +3,7 @@
 Enterprise e‑commerce platform with a **plugin runtime** (Artemis), 
 local cart, modular payment gateways, and full‑stack TypeScript.
 
-- 🌐 [pixelstack.cloud](https://pixelstack.cloud)
+- 🌐 [pixelstack.cloud](https://pixelstack-psi.vercel.app)
 - 📖 [Documentation](https://docs.pixelstack.cloud) (soon)
 - 🧪 Artemis — run React components at runtime without a rebuild
 
