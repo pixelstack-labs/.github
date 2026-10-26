@@ -1,102 +1,50 @@
+# PixelStack Labs
 
-# 🚀 PixelStack Labs
+Enterprise commerce platform and its client fleet, built end-to-end as a
+proprietary stack: a Next.js 16 storefront, an Express BFF over Saleor and
+PostgreSQL, the Artemis server-driven UI runtime, and Artemify - a native
+Android social-commerce client.
 
-**Enterprise E-Commerce Platform — Plugin Runtime, Local Cart, Modular Payments, Full‑Stack TypeScript**
+## What we build
 
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/pixelstack-labs/pixelstack?label=latest)](https://github.com/pixelstack-labs/pixelstack/releases)
-[![Build](https://img.shields.io/badge/build-passing-brightgreen)]()
-[![License](https://img.shields.io/badge/license-BSL-blue)](LICENSE)
-[![PRs](https://img.shields.io/badge/PRs-private%20beta-red)](#contributing)
+**PixelStack enterprise platform** - production commerce stack for
+Ghaem Plastic: CQRS read paths over materialized views, local cart with
+row-level locking, modular ZarinPal gateway with reconciliation cron,
+multi-tier cache chain (NodeCache, Redis, Varnish, ISR), full checkout.
 
----
+**Artemis** - server-driven UI runtime. Layouts are authored in Strapi;
+transpiled, import-free React components are delivered at runtime and
+executed client-side without a site rebuild.
 
-## 🌐 Overview
+**Artemify** - full Android client (Kotlin, Jetpack Compose): social feed,
+native chat over rt.v1 realtime websocket, stickers, rich message bodies,
+and storefront surfaces. Desktop remains the Tauri reference shell.
 
-PixelStack is a **production‑ready e‑commerce platform** built from the ground up for high‑traffic, enterprise‑grade stores.  
-It features a **local cart system** (30ms operations), a **modular payment gateway abstraction**, and **Artemis** — a custom React plugin runtime that executes components without a site rebuild.
+## Repositories
 
----
+| Repository | Focus | Access |
+|---|---|---|
+| artemify-android | Native Android client + Tauri reference shell | private |
+| pixelstack-platform | Enterprise orchestration repo (compose stack, super-repo) | private |
+| pixelstack-web | Next.js 16 storefront | private |
+| pixelstack-api | Express BFF, identity, payments, caching | private |
+| artemis | Server-driven UI middleware | private |
+| pixelstack-admin | Admin panel | private |
+| pixelstack-cms | CMS configuration | private |
+| pixelstack-hub | Hub service | private |
+| pixelstack-infra | Infrastructure glue | private |
+| telegram-gifts | Gift pack tooling | private |
+| .github | Org profile and policies | public |
 
-## ✨ Key Highlights
+## Status
 
-| Feature | Description |
-|--------|-------------|
-| 🛒 **Local Cart** | PostgreSQL‑backed cart with 30ms add/update/remove. Guests & logged‑in users share the same fast path. |
-| 🧩 **Artemis Runtime** | Run React components dynamically using a custom 9‑pass bundler (Challenger) — no redeploy required. |
-| 💳 **Payment Abstraction** | Adapter‑based gateway system (Mock, COD, Stripe, ZarinPal). Add a new gateway by writing one file. |
-| 🔍 **CQRS & Materialized Views** | All read paths (search, filters, product detail, SEO) go through PostgreSQL views — sub‑10ms queries. |
-| 🔐 **Auth** | Independent JWT‑based auth with multiple login methods (password, OTP, Google, magic link). Lazy Saleor customer creation — only at first purchase. |
-| ⚡ **Performance** | Multi‑tier caching (L1 in‑memory + L2 Redis Sentinel), Varnish full‑page cache, HTTP/2, ISR. |
-| 🛡️ **Security** | Helmet, CSP, HSTS, CORS whitelist, rate limiting (Redis sliding window), input validation. |
+- Private development; repositories are proprietary, all rights reserved.
+- Membership and contribution require an invitation from the org owner.
+- English-only code comments, no-decorative-banners policy across all repos.
 
----
+## Contact
 
-## 🏗️ Architecture (simplified)
+- Owner: [matinsanei](https://github.com/matinsanei)
+- Licensing and access: licensing@pixelstack.cloud
 
-```
-Browser → Next.js BFF → Express Custom API (CQRS)
-                           ├─ Local Cart (PostgreSQL)
-                           ├─ Payment Gateways (Adapter Pattern)
-                           └─ Saleor GraphQL (only at checkout)
-```
-
-- **Write path**: Cart mutations, checkout → Saleor (minimal)
-- **Read path**: Products, search, filters → Materialized Views in PostgreSQL (fast)
-
----
-
-## 🧰 Tech Stack
-
-- **Frontend**: Next.js 15, TypeScript, Tailwind CSS, Framer Motion
-- **Backend**: Node.js, Express, TypeScript, Drizzle ORM
-- **Databases**: PostgreSQL (primary + replicas), Redis Sentinel, ClickHouse (analytics)
-- **Infra**: Docker (47 services), Traefik, HAProxy, Varnish, MinIO, Prometheus, Grafana, Jaeger
-- **Commerce**: Saleor 3.x (headless GraphQL)
-
----
-
-## 📦 Repositories
-
-| Repository | Description |
-|-----------|-------------|
-| [pixelstack](https://github.com/pixelstack-labs/pixelstack) | Main monorepo — full platform |
-| `artemis-engine` | Artemis plugin runtime & bundler (private) |
-| `pixelstack-docs` | Architecture & API documentation (coming soon) |
-
----
-
-## 🚀 Getting Started (Private)
-
-> PixelStack is currently in **private beta**.  
-> If you are a collaborator, check the [project setup guide](https://github.com/pixelstack-labs/pixelstack) in the main repo.
-
----
-
-## 📖 Documentation
-
-- 📘 [Cart System Reference](https://github.com/pixelstack-labs/pixelstack/blob/main/docs/cart-system.md)
-- 🧪 [Artemis Developer Guide](https://github.com/pixelstack-labs/pixelstack/blob/main/docs/artemis_developer.md)
-- 💳 [Payment Architecture](https://github.com/pixelstack-labs/pixelstack/blob/main/docs/payment-architecture.md)
-
----
-
-## 👤 Author
-
-Built with ❤️ by **[@matinsanei](https://github.com/matinsanei)**
-
----
-
-## 📝 Contributing
-
-We are not accepting public contributions at this stage.  
-If you find a bug or have a suggestion, please open an issue in the relevant repository.
-
----
-
-## 📄 License
-
-This project is currently **source available**. A license for public use will be announced upon public release.
-
----
-
-© 2026 PixelStack Labs. All rights reserved.
+(c) 2026 PixelStack Labs. All rights reserved.
